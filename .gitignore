@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editores e sistema (Windows, OneDrive, macOS)
+.vscode/
+.idea/
+.claude/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Entrega da disciplina: o .docx e o PDF vão pela plataforma do Infnet, não pelo repositório
+~$*
+andre_becker_PB_TP1.docx
+andre_becker_PB_TP1.pdf
+
+# Molde institucional: é a entrega de outra disciplina (DR3), usada só para montar a capa localmente
+docs/molde/

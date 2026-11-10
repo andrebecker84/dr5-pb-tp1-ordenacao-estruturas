@@ -1,0 +1,362 @@
+LICENÇA DE CÓDIGO VISÍVEL — SOMENTE LEITURA
+Todos os direitos reservados · Uso mediante autorização
+Listagem, Ordenação e Estruturas de Dados · PB-TP1 · Bloco Ciência da Computação
+
+Copyright (c) 2026 André Luis Becker. Todos os direitos reservados, sobre a
+contribuição original descrita na Cláusula 1.1.
+
+================================================================================
+PREÂMBULO — o que esta licença faz, em português claro
+================================================================================
+
+Este é um trabalho acadêmico com CÓDIGO VISÍVEL (source-available), e não código
+aberto. O repositório é público para que o trabalho possa ser LIDO, ESTUDADO e
+AVALIADO. Publicar o código não o coloca em domínio público, nem o torna livre
+para uso: nenhuma licença de uso, cópia, execução, modificação ou distribuição é
+concedida por este documento, salvo o expressamente descrito abaixo.
+
+O trabalho responde a um enunciado da disciplina (Cláusula 6.1). Esta licença
+recai apenas sobre o que o Titular escreveu; o material da disciplina continua
+pertencendo aos seus autores.
+
+  PODE, sem pedir nada a ninguém:
+    · ler, consultar e analisar o código e a documentação nesta página;
+    · citar trechos curtos em trabalho acadêmico ou técnico, com atribuição
+      e indicação da origem.
+
+  PODE, para AVALIAÇÃO ACADÊMICA formal:
+    · o corpo docente e a coordenação da instituição de ensino em que este
+      trabalho foi apresentado podem obter, executar e examinar o Software
+      no que for necessário à avaliação. É para isso que ele existe.
+
+  DEPENDE DE AUTORIZAÇÃO ESCRITA do titular: qualquer outro uso, inclusive:
+    · copiar, baixar, clonar ou reproduzir o Software para uso próprio;
+    · executá-lo, ainda que apenas localmente e sem fim lucrativo;
+    · modificá-lo, adaptá-lo ou dele derivar outro trabalho;
+    · redistribuir, publicar, hospedar ou espelhar o projeto, no todo ou em
+      parte;
+    · empregá-lo em produto, serviço ou atividade com finalidade comercial;
+    · usá-lo como dado de treinamento de modelos de aprendizado de máquina;
+    · apresentar este trabalho, ou derivação dele, como produção acadêmica
+      própria em qualquer instituição de ensino.
+
+Pedir autorização é gratuito e costuma ser respondido: veja a Cláusula 4. A
+restrição existe para preservar a autoria de um percurso acadêmico individual,
+não para dificultar o estudo de quem tem interesse legítimo.
+
+Este preâmbulo resume as cláusulas a seguir e não as substitui. Em caso de
+divergência, prevalece o texto das cláusulas.
+
+================================================================================
+1. DEFINIÇÕES
+================================================================================
+
+1.1. "Software" — a contribuição original do Titular neste repositório:
+
+       · o código em src/: o script de listagem (gerar_listagem.sh), os
+         programas de ordenação (ordenacao.py) e de estruturas de dados
+         (estruturas.py) e as funções de apresentação do notebook;
+       · o notebook andre_becker_PB_TP1.ipynb, as telas do terminal em
+         evidencias/ e os resultados das medições em resultados/;
+       · os scripts de captura de telas e de geração do notebook e do
+         documento de entrega, em scripts/;
+       · a documentação (README.md, docs/RELATORIO_TP1.md e as análises e
+         conclusões neles contidas).
+
+     Excluem-se o material da disciplina e os Materiais de Terceiros da
+     Cláusula 6.
+
+1.2. "Titular" — André Luis Becker, autor e detentor dos direitos patrimoniais
+     sobre o Software.
+
+1.3. "Você" — a pessoa física ou jurídica que acessa, lê, copia, executa ou de
+     qualquer outro modo interage com o Software, inclusive por meio de agente
+     automatizado sob seu comando.
+
+1.3.1. "Instituição Avaliadora" — a instituição de ensino perante a qual este
+     trabalho foi apresentado como atividade acadêmica, e os agentes que atuam
+     em seu nome na avaliação: docentes, coordenação e banca.
+
+1.4. "Finalidade Comercial" — qualquer uso destinado, direta ou indiretamente,
+     a vantagem comercial ou remuneração, inclusive uso interno por pessoa
+     jurídica em suas atividades produtivas, prestação de serviços a terceiros,
+     incorporação a produto ofertado ao mercado e uso em treinamento de modelos
+     comercializados.
+
+1.5. "Finalidade Não Comercial" — uso pessoal, de pesquisa, de ensino ou de
+     avaliação acadêmica, sem as características do item 1.4.
+
+================================================================================
+2. CONCESSÃO LIMITADA
+================================================================================
+
+2.1. CONCESSÃO GERAL — LEITURA
+
+O Titular concede a Você licença mundial, gratuita, não exclusiva,
+intransferível, não sublicenciável e revogável para:
+
+  a) acessar e ler o código-fonte e a documentação do Software, para fins de
+     estudo, consulta e avaliação técnica;
+  b) citar trechos curtos em trabalho acadêmico, técnico ou jornalístico, desde
+     que com atribuição ao Titular e indicação da origem.
+
+A concessão desta cláusula é de LEITURA. Ela NÃO abrange copiar, baixar, clonar,
+armazenar, executar, modificar, adaptar, traduzir, redistribuir ou de qualquer
+forma explorar o Software.
+
+2.2. CONCESSÃO ESPECÍFICA — AVALIAÇÃO ACADÊMICA INSTITUCIONAL
+
+O Software foi produzido para ser avaliado. Ficam autorizados, independentemente
+de pedido, o corpo docente, a coordenação, a banca e os demais agentes da
+Instituição Avaliadora a obter, reproduzir e executar o Software na medida
+necessária à conferência, correção e arguição da entrega.
+
+Esta autorização é limitada a essa finalidade e não abrange redistribuição,
+publicação, uso comercial nem incorporação a outro trabalho.
+
+2.3. RESERVA
+
+Nenhum outro direito é concedido. Todos os direitos não expressamente
+concedidos nesta cláusula permanecem reservados ao Titular, na forma da Lei nº
+9.610/1998 e da Lei nº 9.609/1998.
+
+Na dúvida sobre se um uso pretendido está coberto, presuma que NÃO está e peça
+autorização (Cláusula 4).
+
+2.4. TERMOS DA PLATAFORMA DE HOSPEDAGEM
+
+O Software é publicado em repositório hospedado no GitHub. Os Termos de Serviço
+dessa plataforma concedem a seus usuários, por força do próprio ato de
+publicação, a faculdade de visualizar o repositório e de criar bifurcações
+("forks") dentro da plataforma. Esta licença NÃO revoga o que a plataforma
+concede; não teria como.
+
+O que ela determina é o que Você pode fazer com o conteúdo assim obtido: a
+existência de um fork não amplia a Cláusula 2.1. Executar, modificar,
+redistribuir ou publicar o Software a partir de um fork continua dependendo de
+autorização escrita, e a bifurcação em si não constitui autorização de espécie
+alguma.
+
+================================================================================
+3. RESTRIÇÕES
+================================================================================
+
+Sem autorização prévia e por escrito do Titular, e ressalvada a Cláusula 2.2, é
+vedado:
+
+3.0. REPRODUÇÃO E EXECUÇÃO. Copiar, baixar, clonar, espelhar, armazenar em
+     sistema de recuperação, instalar ou executar o Software, no todo ou em
+     parte, ainda que em máquina local, em ambiente privado e sem qualquer
+     proveito econômico.
+
+3.1. Empregar o Software, no todo ou em parte, para Finalidade Comercial.
+
+3.2. Distribuir, publicar, hospedar, disponibilizar em rede, comercializar,
+     alugar, emprestar ou de outro modo transferir o Software a terceiros.
+
+3.3. Modificar, adaptar, traduzir, refatorar ou realizar engenharia reversa do
+     Software, bem como publicar obras derivadas, adaptações ou versões
+     modificadas.
+
+3.4. Sublicenciar o Software ou relicenciá-lo sob outros termos, inclusive sob
+     licenças de código aberto.
+
+3.5. Remover, ocultar ou alterar avisos de autoria, de copyright ou esta
+     licença.
+
+3.6. INTEGRIDADE ACADÊMICA. Apresentar o Software, ou trabalho dele derivado,
+     como produção própria em atividade avaliativa, trabalho de conclusão,
+     processo seletivo ou publicação, em qualquer instituição de ensino.
+     Esta restrição é o principal objetivo desta licença: o Software é o
+     resultado de um percurso acadêmico individual, e sua reapresentação por
+     terceiros como trabalho próprio configura, além de violação contratual,
+     fraude acadêmica perante a instituição envolvida.
+
+3.7. MINERAÇÃO E TREINAMENTO DE MODELOS. Utilizar o Software, no todo ou em
+     parte, como dado de treinamento, ajuste fino ou avaliação de modelos de
+     aprendizado de máquina, bem como incluí-lo em conjunto de dados destinado
+     a esse fim, com ou sem finalidade comercial.
+
+     Reserva declarada de direitos para efeito de coleta automatizada: esta
+     cláusula constitui manifestação expressa e legível por máquina de oposição
+     à extração e à reprodução do Software por rastreadores, coletores e
+     agentes automatizados de qualquer natureza.
+
+================================================================================
+4. AUTORIZAÇÕES EXCEPCIONAIS
+================================================================================
+
+Usos fora do escopo da Cláusula 2 podem ser autorizados, e o pedido é gratuito.
+Deve ser dirigido ao Titular, por escrito, descrevendo o uso pretendido, sua
+extensão e sua finalidade. A autorização, quando concedida, será específica para
+o uso descrito, por prazo determinado quando couber, e não se estende a usos
+posteriores nem a terceiros.
+
+CANAL ÚNICO DE CONTATO — GitHub:
+
+  · Abrir uma issue no repositório oficial do projeto:
+    https://github.com/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/issues
+
+  · Ou entrar em contato pelo perfil do Titular:
+    https://github.com/andrebecker84
+
+O Titular não divulga endereço de correio eletrônico pessoal para esta
+finalidade. Pedidos enviados por outros canais podem não ser respondidos, e a
+ausência de resposta NÃO equivale a autorização tácita: o silêncio deve ser
+interpretado como negativa.
+
+Toda autorização é concedida por escrito e de forma rastreável, na própria
+issue ou em documento assinado. Declarações verbais, capturas de tela e
+mensagens de terceiros não constituem autorização.
+
+================================================================================
+5. VIGÊNCIA E RESCISÃO
+================================================================================
+
+5.1. A licença vigora enquanto Você cumprir estes termos.
+
+5.2. O descumprimento de qualquer cláusula extingue a licença automaticamente,
+     independentemente de notificação, obrigando Você a cessar o uso e destruir
+     as cópias em seu poder.
+
+5.3. A extinção não prejudica os direitos do Titular quanto a violações
+     ocorridas durante a vigência.
+
+================================================================================
+6. MATERIAL DA DISCIPLINA E MATERIAIS DE TERCEIROS
+================================================================================
+
+6.1. MATERIAL DA DISCIPLINA
+
+O trabalho responde ao enunciado do Teste de Performance da disciplina
+DR5 - Projeto de Bloco: Ciência da Computação, do Instituto Infnet, ministrada
+pelo professor Ricardo Pires Mesquita. Pertencem aos seus autores, e NÃO são
+alcançados por esta licença:
+
+  · o texto do enunciado e da rubrica, reproduzido em docs/context/ apenas
+    como referência para a avaliação;
+  · a capa institucional do documento de entrega, com a identidade visual do
+    Instituto Infnet, cujas marcas pertencem à instituição. O modelo usado para
+    montá-la não é versionado neste repositório.
+
+A listagem listagem_arquivos.txt registra apenas os caminhos dos arquivos do
+diretório /usr/lib de uma instalação padrão do Ubuntu 24.04; os arquivos em si
+pertencem aos seus respectivos projetos e não estão neste repositório.
+
+6.2. BIBLIOTECAS E FERRAMENTAS
+
+O repositório NÃO versiona bibliotecas de terceiros: ele as usa por referência.
+Cada uma permanece sujeita à licença de seu respectivo detentor, que prevalece
+sobre os termos acima:
+
+  · Python e sua biblioteca padrão (time, tracemalloc, statistics, gc, json,
+    random, inspect), sob a Python Software Foundation License. Os dois
+    programas usam apenas a biblioteca padrão.
+
+  · No notebook e na geração das evidências: Jupyter (nbformat, nbclient,
+    ipykernel) e matplotlib, sob licenças BSD e PSF; Pillow, sob a licença
+    MIT-CMU; WezTerm, sob licença MIT; GNU nano e GNU findutils, sob a GPL.
+    São obtidos do repositório oficial de cada projeto, não deste.
+
+A concessão da Cláusula 2 recai exclusivamente sobre a contribuição original do
+Titular. Ao reutilizar o material da disciplina ou os Materiais de Terceiros,
+Você deve observar os termos de origem diretamente.
+
+================================================================================
+7. AUSÊNCIA DE GARANTIA
+================================================================================
+
+O SOFTWARE É FORNECIDO "NO ESTADO EM QUE SE ENCONTRA", SEM GARANTIA DE
+QUALQUER NATUREZA, EXPRESSA OU IMPLÍCITA, INCLUINDO, SEM LIMITAÇÃO, GARANTIAS
+DE COMERCIABILIDADE, ADEQUAÇÃO A FINALIDADE ESPECÍFICA, PRECISÃO E NÃO
+VIOLAÇÃO DE DIREITOS DE TERCEIROS.
+
+Trata-se de trabalho acadêmico, concebido para fins didáticos.
+
+================================================================================
+8. LIMITAÇÃO DE RESPONSABILIDADE
+================================================================================
+
+Na máxima extensão permitida pela legislação aplicável, o Titular não responde
+por danos diretos, indiretos, incidentais, especiais, punitivos ou emergentes,
+nem por lucros cessantes, perda de dados ou interrupção de atividades,
+decorrentes do uso ou da impossibilidade de uso do Software, ainda que
+advertido da possibilidade de tais danos.
+
+================================================================================
+9. LEGISLAÇÃO APLICÁVEL E FORO
+================================================================================
+
+Esta licença rege-se pelas leis da República Federativa do Brasil, em especial
+a Lei nº 9.610/1998 (Direitos Autorais) e a Lei nº 9.609/1998 (Proteção da
+Propriedade Intelectual de Programa de Computador).
+
+Fica eleito o foro da comarca de domicílio do Titular para dirimir controvérsias
+oriundas desta licença, com renúncia a qualquer outro, por mais privilegiado
+que seja.
+
+================================================================================
+ANEXO I — AVISO DE PROTEÇÃO DE DADOS (LGPD)
+================================================================================
+
+Este anexo é um AVISO informativo. Não integra a concessão de licença: uma
+licença rege direitos autorais, enquanto a proteção de dados pessoais é regida
+pela Lei nº 13.709/2018 (LGPD), que se aplica por força de lei e não por
+contrato. Os dois assuntos constam do mesmo arquivo por conveniência de quem
+avalia o projeto.
+
+A.1. DADOS CONTIDOS NO REPOSITÓRIO
+     O repositório NÃO contém dados pessoais de terceiros. Do Titular, constam
+     apenas o nome completo e a conta do GitHub, para identificação acadêmica.
+     Nenhum documento de identificação é publicado.
+
+     As capturas de tela mostram o nome de usuário e o nome da máquina do
+     Titular no prompt do terminal, sem nenhum outro dado. Os commits usam o
+     endereço de e-mail protegido do GitHub (noreply), e não um endereço
+     pessoal.
+
+     O único dado processado é a listagem de caminhos de arquivos do diretório
+     /usr/lib de uma instalação padrão do Ubuntu 24.04: nomes de bibliotecas e
+     arquivos de sistema, sem nenhuma informação pessoal. Os itens adicionados
+     nos testes de adição e remoção são nomes fictícios (/novo/arquivo_0001.txt
+     e seguintes). O projeto não usa senhas, tokens nem segredos de qualquer
+     natureza.
+
+A.2. DADOS QUE O SOFTWARE TRATA QUANDO EM EXECUÇÃO
+     Nenhum dado pessoal. O script de listagem lê apenas os nomes dos arquivos
+     do diretório indicado (por padrão, /usr/lib); os dois programas leem só a
+     listagem gerada e gravam os resultados na pasta resultados/. Nada acessa a
+     rede. O script de captura de telas usa uma pasta de trabalho temporária no
+     Ubuntu (~/PB_TP1) e traz de volta para o projeto apenas a listagem, os
+     resultados e as imagens.
+
+A.3. CONTATO
+     Comunicações sobre dados pessoais relacionadas a este repositório devem
+     ser dirigidas ao Titular pelos canais indicados na Cláusula 4.
+
+================================================================================
+
+NOTA SOBRE A CATEGORIA DESTA LICENÇA
+
+Esta é uma licença PROPRIETÁRIA de código visível (source-available), do tipo
+"todos os direitos reservados, leitura permitida". Não é licença de código
+aberto: não atende à Open Source Definition nem às Quatro Liberdades, e isso é
+deliberado. O GitHub a classifica como "Other".
+
+Equivalentes e referências de mercado para propósitos próximos, em ordem
+crescente de permissividade:
+
+  · Todos os direitos reservados / source-available — ausência de licença de
+    uso, com o código apenas visível. É a categoria desta licença.
+  · Creative Commons BY-NC-ND 4.0 — permite redistribuir sem modificar;
+    concebida para obras editoriais, não para software.
+    https://creativecommons.org/licenses/by-nc-nd/4.0/
+  · PolyForm Noncommercial 1.0.0 — permite uso e modificação sem fim comercial.
+    https://polyformproject.org/licenses/noncommercial/1.0.0/
+  · Business Source License 1.1 — restringe uso em produção e converte-se em
+    licença aberta após prazo determinado.
+    https://mariadb.com/bsl11/
+
+Este documento foi redigido para um projeto acadêmico e não constitui
+aconselhamento jurídico. Para uso com consequências patrimoniais relevantes,
+recomenda-se revisão por profissional habilitado.

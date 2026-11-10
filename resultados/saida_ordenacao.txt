@@ -1,0 +1,41 @@
+becker@alienwarePC  ~/PB_TP1  v3.15.2
+❯ python3 ordenacao.py listagem_arquivos.txt
+
+PROGRAMA 1 - ORDENACAO DA LISTAGEM DE ARQUIVOS
+----------------------------------------------
+Arquivo lido      : listagem_arquivos.txt
+Entradas (N)      : 17.520
+Tempo de leitura  : 5.0 ms
+Inversoes         : 43.417.179 de 153.466.440 pares (28.3%)
+Python 3.15.2 | Linux 6.18.54.1-microsoft-standard-WSL2
+
+1) Listagem completa (N = 17.520, mediana de 3 execucoes)
+---------------------------------------------------------
+Bubble Sort         6.836 s   [6.836 s | 7.165 s | 6.475 s]  [OK]
+Selection Sort      3.807 s   [3.913 s | 3.807 s | 3.772 s]  [OK]
+Insertion Sort      1.865 s   [1.852 s | 1.879 s | 1.865 s]  [OK]
+list.sort()          1.4 ms   (Timsort, referencia O(N log N))
+
+2) Crescimento com N (mediana de 3 execucoes)
+---------------------------------------------
+      N      Bubble Sort  Selection Sort  Insertion Sort
+  1.000          17.5 ms         11.1 ms          5.2 ms
+  2.000          72.4 ms         48.2 ms         35.2 ms
+  4.000         344.3 ms        194.1 ms        171.8 ms
+  8.000          1.345 s        790.5 ms        565.4 ms
+ 16.000          5.436 s         3.109 s         1.746 s
+ 17.520          6.836 s         3.807 s         1.865 s
+
+3) Ordem inicial (N = 4.000, mediana de 3 execucoes)
+----------------------------------------------------
+Entrada              Bubble Sort  Selection Sort  Insertion Sort
+Original (find)         336.0 ms        196.2 ms        172.8 ms
+Ja ordenada               0.2 ms        201.1 ms          0.2 ms
+Invertida               419.6 ms        219.5 ms        318.9 ms
+
+Resultados gravados em resultados/ordenacao.json e resultados/listagem_ordenada.txt
+becker@alienwarePC  ~/PB_TP1  v3.15.2  1m25s
+❯ LC_ALL=C sort listagem_arquivos.txt | cmp - resultados/listagem_ordenada.txt && echo 'identica ao sort do Linux'
+identica ao sort do Linux
+becker@alienwarePC  ~/PB_TP1  v3.15.2
+❯

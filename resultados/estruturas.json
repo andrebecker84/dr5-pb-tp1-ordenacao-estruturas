@@ -1,0 +1,303 @@
+{
+  "arquivo": "listagem_arquivos.txt",
+  "n": 17520,
+  "posicoes": [
+    1,
+    100,
+    1000,
+    5000,
+    17520
+  ],
+  "lote": 1000,
+  "python": "3.15.2",
+  "sistema": "Linux 6.18.58.1-microsoft-standard-WSL2",
+  "repeticoes": {
+    "carga": 3,
+    "consulta": 21,
+    "operacao": 11
+  },
+  "estruturas": {
+    "Hashtable": {
+      "carga": {
+        "tempo_ns": 23415213,
+        "memoria": [
+          4155488,
+          4590680
+        ]
+      },
+      "tabela": {
+        "baldes": 32768,
+        "fator_carga": 0.53466796875,
+        "baldes_vazios": 20369,
+        "maior_balde": 2
+      },
+      "consultas": [
+        {
+          "posicao": 1,
+          "arquivo": "/usr/lib/gnupg/gpg-check-pattern",
+          "tempo_ns": 208,
+          "memoria": [
+            0,
+            0
+          ]
+        },
+        {
+          "posicao": 100,
+          "arquivo": "/usr/lib/linux-tools/6.18.54.1-microsoft-standard-WSL2/libexec/perf-core/tests/shell/lib/stat_output.sh",
+          "tempo_ns": 229,
+          "memoria": [
+            64,
+            132
+          ]
+        },
+        {
+          "posicao": 1000,
+          "arquivo": "/usr/lib/python3/dist-packages/yaml/__pycache__/tokens.cpython-312.pyc",
+          "tempo_ns": 225,
+          "memoria": [
+            64,
+            132
+          ]
+        },
+        {
+          "posicao": 5000,
+          "arquivo": "/usr/lib/python3/dist-packages/pygments/styles/zenburn.py",
+          "tempo_ns": 207,
+          "memoria": [
+            64,
+            132
+          ]
+        },
+        {
+          "posicao": 17520,
+          "arquivo": "/usr/lib/netplan/PLACEHOLDER",
+          "tempo_ns": 235,
+          "memoria": [
+            64,
+            132
+          ]
+        }
+      ],
+      "operacoes": {
+        "adicionar_1": {
+          "tempo_ns": 23523,
+          "memoria": [
+            160,
+            280
+          ]
+        },
+        "adicionar_1000": {
+          "tempo_ns": 835494,
+          "memoria": [
+            106848,
+            106992
+          ]
+        },
+        "remover_1": {
+          "tempo_ns": 29288,
+          "memoria": [
+            144,
+            216
+          ]
+        },
+        "remover_1000": {
+          "tempo_ns": 736564,
+          "memoria": [
+            -28864,
+            1032
+          ]
+        }
+      },
+      "efeito": {
+        "primeiro_removido": "/novo/arquivo_1000.txt",
+        "ultimo_removido": "/novo/arquivo_0001.txt",
+        "tamanho_final": 17520,
+        "referencia_apos": "/usr/lib/netplan/PLACEHOLDER"
+      }
+    },
+    "Pilha": {
+      "carga": {
+        "tempo_ns": 2888582,
+        "memoria": [
+          841256,
+          841256
+        ]
+      },
+      "consultas": [
+        {
+          "posicao": 1,
+          "arquivo": "/usr/lib/gnupg/gpg-check-pattern",
+          "tempo_ns": 198588,
+          "memoria": [
+            0,
+            0
+          ]
+        },
+        {
+          "posicao": 100,
+          "arquivo": "/usr/lib/linux-tools/6.18.54.1-microsoft-standard-WSL2/libexec/perf-core/tests/shell/lib/stat_output.sh",
+          "tempo_ns": 227240,
+          "memoria": [
+            0,
+            0
+          ]
+        },
+        {
+          "posicao": 1000,
+          "arquivo": "/usr/lib/python3/dist-packages/yaml/__pycache__/tokens.cpython-312.pyc",
+          "tempo_ns": 298534,
+          "memoria": [
+            0,
+            0
+          ]
+        },
+        {
+          "posicao": 5000,
+          "arquivo": "/usr/lib/python3/dist-packages/pygments/styles/zenburn.py",
+          "tempo_ns": 149864,
+          "memoria": [
+            0,
+            0
+          ]
+        },
+        {
+          "posicao": 17520,
+          "arquivo": "/usr/lib/netplan/PLACEHOLDER",
+          "tempo_ns": 164,
+          "memoria": [
+            0,
+            0
+          ]
+        }
+      ],
+      "operacoes": {
+        "adicionar_1": {
+          "tempo_ns": 13589,
+          "memoria": [
+            48,
+            56
+          ]
+        },
+        "adicionar_1000": {
+          "tempo_ns": 91387,
+          "memoria": [
+            48000,
+            48000
+          ]
+        },
+        "remover_1": {
+          "tempo_ns": 13305,
+          "memoria": [
+            -48,
+            0
+          ]
+        },
+        "remover_1000": {
+          "tempo_ns": 103239,
+          "memoria": [
+            -48000,
+            0
+          ]
+        }
+      },
+      "efeito": {
+        "primeiro_removido": "/novo/arquivo_1000.txt",
+        "ultimo_removido": "/novo/arquivo_0001.txt",
+        "tamanho_final": 17520,
+        "referencia_apos": "/usr/lib/netplan/PLACEHOLDER"
+      }
+    },
+    "Fila": {
+      "carga": {
+        "tempo_ns": 2973744,
+        "memoria": [
+          841256,
+          841256
+        ]
+      },
+      "consultas": [
+        {
+          "posicao": 1,
+          "arquivo": "/usr/lib/gnupg/gpg-check-pattern",
+          "tempo_ns": 191,
+          "memoria": [
+            64,
+            64
+          ]
+        },
+        {
+          "posicao": 100,
+          "arquivo": "/usr/lib/linux-tools/6.18.54.1-microsoft-standard-WSL2/libexec/perf-core/tests/shell/lib/stat_output.sh",
+          "tempo_ns": 946,
+          "memoria": [
+            64,
+            64
+          ]
+        },
+        {
+          "posicao": 1000,
+          "arquivo": "/usr/lib/python3/dist-packages/yaml/__pycache__/tokens.cpython-312.pyc",
+          "tempo_ns": 8775,
+          "memoria": [
+            64,
+            64
+          ]
+        },
+        {
+          "posicao": 5000,
+          "arquivo": "/usr/lib/python3/dist-packages/pygments/styles/zenburn.py",
+          "tempo_ns": 52622,
+          "memoria": [
+            64,
+            64
+          ]
+        },
+        {
+          "posicao": 17520,
+          "arquivo": "/usr/lib/netplan/PLACEHOLDER",
+          "tempo_ns": 209742,
+          "memoria": [
+            64,
+            64
+          ]
+        }
+      ],
+      "operacoes": {
+        "adicionar_1": {
+          "tempo_ns": 11095,
+          "memoria": [
+            48,
+            56
+          ]
+        },
+        "adicionar_1000": {
+          "tempo_ns": 101378,
+          "memoria": [
+            48000,
+            48000
+          ]
+        },
+        "remover_1": {
+          "tempo_ns": 13012,
+          "memoria": [
+            -48,
+            0
+          ]
+        },
+        "remover_1000": {
+          "tempo_ns": 120467,
+          "memoria": [
+            -48000,
+            0
+          ]
+        }
+      },
+      "efeito": {
+        "primeiro_removido": "/usr/lib/gnupg/gpg-check-pattern",
+        "ultimo_removido": "/usr/lib/python3/dist-packages/yaml/__pycache__/tokens.cpython-312.pyc",
+        "tamanho_final": 17520,
+        "referencia_apos": "/usr/lib/python3/dist-packages/yaml/__pycache__/composer.cpython-312.pyc"
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+becker@alienwarePC  ~/PB_TP1  v3.15.2
+❯ python3 estruturas.py listagem_arquivos.txt
+
+PROGRAMA 2 - HASHTABLE, PILHA E FILA
+Arquivo lido : listagem_arquivos.txt
+Entradas (N) : 17.520
+Python 3.15.2 | Linux 6.18.58.1-microsoft-standard-WSL2 | tempo: mediana (carga 3x, consulta 21x, adicao/remocao 11x) | memoria: tracemalloc
+Medindo carga, consultas, adicao e remocao nas tres estruturas...
+
+1) Carga dos 17.520 caminhos
+                               Hashtable                   Pilha                    Fila
+Tempo                           23.42 ms                 2.89 ms                 2.97 ms
+Memoria                         3.96 MiB               821.5 KiB               821.5 KiB
+Bytes por item                     237 B                    48 B                    48 B
+
+2) Arquivos nas posicoes pedidas (o mesmo arquivo nas tres estruturas)
+       1  /usr/lib/gnupg/gpg-check-pattern  [OK]
+     100  /usr/lib/linux-tools/6.18.54.1-microsoft-standard-WSL2/libexec/perf-core/tests/shell/lib/stat_output.sh  [OK]
+   1.000  /usr/lib/python3/dist-packages/yaml/__pycache__/tokens.cpython-312.pyc  [OK]
+   5.000  /usr/lib/python3/dist-packages/pygments/styles/zenburn.py  [OK]
+  17.520  /usr/lib/netplan/PLACEHOLDER  [OK]
+
+3) Tempo de consulta por posicao (pico de memoria)
+ Posicao               Hashtable                   Pilha                    Fila
+       1            208 ns (0 B)          198.6 us (0 B)           191 ns (64 B)
+     100          229 ns (132 B)          227.2 us (0 B)           946 ns (64 B)
+   1.000          225 ns (132 B)          298.5 us (0 B)           8.8 us (64 B)
+   5.000          207 ns (132 B)          149.9 us (0 B)          52.6 us (64 B)
+  17.520          235 ns (132 B)            164 ns (0 B)         209.7 us (64 B)
+
+4) Adicao e remocao (tempo | memoria liquida)
+Operacao                       Hashtable                   Pilha                    Fila
+adicionar_1              23.5 us | 160 B          13.6 us | 48 B          11.1 us | 48 B
+adicionar_1000      835.5 us | 104.3 KiB      91.4 us | 46.9 KiB     101.4 us | 46.9 KiB
+remover_1                29.3 us | 144 B         13.3 us | -48 B         13.0 us | -48 B
+remover_1000        736.6 us | -28.2 KiB    103.2 us | -46.9 KiB    120.5 us | -46.9 KiB
+
+5) Depois de adicionar e remover 1.000 itens (LIFO x FIFO)
+Hashtable  1o removido: /novo/arquivo_1000.txt
+           chave 17.520: /usr/lib/netplan/PLACEHOLDER
+Pilha      1o removido: /novo/arquivo_1000.txt
+           topo: /usr/lib/netplan/PLACEHOLDER
+Fila       1o removido: /usr/lib/gnupg/gpg-check-pattern
+           frente: /usr/lib/python3/dist-packages/yaml/__pycache__/composer.cpython-312.pyc
+
+Resultados gravados em resultados/estruturas.json
+becker@alienwarePC  ~/PB_TP1  v3.15.2  3s
+❯

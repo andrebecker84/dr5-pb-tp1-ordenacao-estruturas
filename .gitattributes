@@ -1,0 +1,7 @@
+# Texto sempre com quebra de linha LF no repositório. Os scripts rodam no bash do WSL, que não
+# aceita CRLF; sem isto, o git do Windows converteria ao fazer checkout.
+* text=auto eol=lf
+
+*.png binary
+*.pdf binary
+*.docx binary
