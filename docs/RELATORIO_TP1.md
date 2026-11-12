@@ -39,7 +39,7 @@ estruturas de dados se comportam na prática e confrontam essas medições com a
 
 1. **Parte 1 · Linux.** No Ubuntu 24.04 (WSL2), o script `gerar_listagem.sh` executa
    `find /usr/lib -type f > listagem_arquivos.txt 2>/dev/null` e grava os **17.520 arquivos** do
-   diretório, distribuídos em 2.976 subdiretórios.
+   diretório, distribuídos em 2.975 subdiretórios.
 2. **Programa 1 · ordenação.** O `ordenacao.py` ordena a listagem com **Bubble Sort**, **Selection
    Sort** e **Insertion Sort** e registra o tempo de cada execução, o crescimento com N e o efeito da
    ordem inicial.

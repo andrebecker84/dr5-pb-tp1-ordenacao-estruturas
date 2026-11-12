@@ -2,7 +2,7 @@
 
 > [!NOTE]
 > Texto da disciplina, reproduzido apenas como referência para a avaliação (veja a Cláusula 6.1 do
-> [LICENSE](../../LICENSE)). Veja também o [rubrica](rubrica-PB-TP1.md) e o [README](../../README.md), que mapeia cada critério
+> [LICENSE](../../LICENSE)). Veja também a [rubrica](rubrica-PB-TP1.md) e o [README](../../README.md), que mapeia cada critério
 > para a seção do notebook que o atende.
 
 O objetivo deste projeto é permitir que você demonstre suas habilidades em sistemas operacionais Linux, programação em Python, estruturas de dados e análise de algoritmos. Você será responsável por criar uma listagem dos arquivos de um diretório fornecido pelo professor, redirecionar essa listagem para um arquivo de texto e, em seguida, usar esse arquivo em dois programas Python:

@@ -218,7 +218,7 @@ WSL2 e o shell **fish**:
 | Hardware | Intel Core i9-12900H, 16 GB de RAM reservados ao WSL |
 | Terminal | WezTerm, shell fish com prompt starship; scripts de shell em bash |
 | Linguagem | Python {O['python']} no Ubuntu, só biblioteca padrão |
-| Diretório listado | `/usr/lib`: **{milhar(N)} arquivos** em 2.976 subdiretórios aninhados |
+| Diretório listado | `/usr/lib`: **{milhar(N)} arquivos** em 2.975 subdiretórios aninhados |
 | Medição de tempo | `time.perf_counter` / `perf_counter_ns`, mediana de várias execuções |
 | Medição de memória | `tracemalloc`, em passada separada da medição de tempo |
 
@@ -274,8 +274,9 @@ find /usr/lib -type f > listagem_arquivos.txt 2>/dev/null
 
 ### Execução
 
-Primeiro acessei o diretório no terminal e contei o que havia nele: **2.976 subdiretórios** e
-**{milhar(N)} arquivos regulares** (Figura 1). Depois gravei o comando no script `gerar_listagem.sh`,
+Primeiro acessei o diretório no terminal e contei o que havia nele: **2.975 subdiretórios** e
+**{milhar(N)} arquivos regulares** (Figura 1; o `find . -type d` devolve 2.976 porque conta também
+o próprio `/usr/lib`). Depois gravei o comando no script `gerar_listagem.sh`,
 dei permissão de execução e o executei (Figura 2).
 """)
 

@@ -65,7 +65,7 @@ flowchart LR
 ```
 
 1. **Parte 1 (Linux):** `find /usr/lib -type f > listagem_arquivos.txt 2>/dev/null`, dentro de
-   [`src/gerar_listagem.sh`](src/gerar_listagem.sh). São 17.520 arquivos em 2.976 subdiretórios.
+   [`src/gerar_listagem.sh`](src/gerar_listagem.sh). São 17.520 arquivos em 2.975 subdiretórios.
 2. **Programa 1** ([`src/ordenacao.py`](src/ordenacao.py)): ordena a listagem com os três algoritmos,
    mede o tempo (mediana de 3 execuções), o crescimento com N e o efeito da ordem inicial.
 3. **Programa 2** ([`src/estruturas.py`](src/estruturas.py)): implementa as três estruturas, recupera
@@ -150,7 +150,7 @@ está no notebook, publicado como [página do relatório](https://andrebecker84.
 No Linux (ou WSL), de dentro de `src/`:
 
 ```bash
-./gerar_listagem.sh /usr/lib listagem_arquivos.txt
+chmod +x gerar_listagem.sh && ./gerar_listagem.sh /usr/lib listagem_arquivos.txt
 python3 ordenacao.py listagem_arquivos.txt      # cerca de 1,5 min: os O(N²) rodam 3 vezes cada
 python3 estruturas.py listagem_arquivos.txt     # alguns segundos
 ```

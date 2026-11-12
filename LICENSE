@@ -254,8 +254,9 @@ sobre os termos acima:
     programas usam apenas a biblioteca padrão.
 
   · No notebook e na geração das evidências: Jupyter (nbformat, nbclient,
-    ipykernel) e matplotlib, sob licenças BSD e PSF; Pillow, sob a licença
-    MIT-CMU; WezTerm, sob licença MIT; GNU nano e GNU findutils, sob a GPL.
+    ipykernel, nbconvert) e matplotlib, sob licenças BSD e PSF; Pillow, sob
+    a licença MIT-CMU; WezTerm, sob licença MIT; GNU nano e GNU findutils, sob
+    a GPL.
     São obtidos do repositório oficial de cada projeto, não deste.
 
 A concessão da Cláusula 2 recai exclusivamente sobre a contribuição original do
