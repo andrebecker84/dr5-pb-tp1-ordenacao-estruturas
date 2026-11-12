@@ -18,8 +18,6 @@ Convencoes do markdown:
   @@imagem c | l  imagem do projeto (caminho c) com a legenda l
   Tabela N. ...   legenda da tabela logo acima
   paragrafos      corpo; na secao Referencias, sem recuo (ABNT)
-  @@quebra        quebra de pagina
-  @@listagem      a listagem_arquivos.txt inteira, numerada (Apendice A)
 """
 import glob, io, os, re, shutil, struct, sys, tempfile, zipfile
 
@@ -58,24 +56,7 @@ def carregar_conteudo():
         sys.path.insert(0, os.path.join(RAIZ, 'scripts'))
         from relatorio_notebook import converter
         texto = texto.replace('<!-- @@notebook -->', converter())
-    # Apendice A: a listagem inteira dentro do PDF, para a entrega ser um arquivo so.
-    texto = texto.replace('<!-- @@listagem -->', (
-        '@@quebra\n\n## Apêndice A · Listagem completa (listagem_arquivos.txt)\n\n'
-        'Conteúdo integral do arquivo `listagem_arquivos.txt`, gerado na Parte 1 pelo `gerar_listagem.sh` '
-        '(Figura 2): %s caminhos, na ordem em que o `find` os gravou. O número à esquerda é a linha do '
-        'arquivo, que é também a posição usada no Programa 2: as linhas 1, 100, 1.000, 5.000 e %s são os '
-        'arquivos das Tabelas 5 a 7. O texto é pesquisável (Ctrl+F) e o arquivo original está no '
-        'repositório (Links do projeto).\n\n@@listagem\n')
-        % (_milhar(len(LISTAGEM)), _milhar(len(LISTAGEM))))
     return re.sub(r'<!--.*?-->', '', texto, flags=re.S)
-
-
-def _milhar(n):
-    return '{:,}'.format(n).replace(',', '.')
-
-
-with io.open(os.path.join(RAIZ, 'listagem_arquivos.txt'), encoding='utf-8', errors='surrogateescape') as _f:
-    LISTAGEM = [l.rstrip('\n') for l in _f if l.strip()]
 
 
 def trecho_funcoes(nome, funcoes):
@@ -332,24 +313,6 @@ def codigo(linhas, tam=17, recuo=454):
         '<w:t xml:space="preserve">%s</w:t></w:r></w:p>'
         % (recuo, tam, tam, tam, tam, esc(l if l else ' '))
         for l in linhas)
-
-def listagem(linhas, tam=12, por_paragrafo=50):
-    """Apendice A: uma linha por arquivo, numerada, em Consolas 6 pt e sem fundo. As linhas vao em
-    paragrafos de `por_paragrafo` separadas por <w:br/>, o que deixa o XML ~10x menor que um paragrafo
-    por linha; widowControl desligado para o Word encher cada pagina ate o fim."""
-    larg = len(str(len(linhas)))
-    rpr = ('<w:rPr><w:rFonts w:ascii="Consolas" w:hAnsi="Consolas" w:cs="Consolas" w:eastAsia="Consolas"/>'
-           '<w:sz w:val="%d"/><w:szCs w:val="%d"/></w:rPr>' % (tam, tam))
-    out = []
-    for ini in range(0, len(linhas), por_paragrafo):
-        bloco = linhas[ini:ini + por_paragrafo]
-        corpo_ = '<w:br/>'.join('<w:t xml:space="preserve">%s  %s</w:t>' % (str(ini + k + 1).rjust(larg), esc(l))
-                                for k, l in enumerate(bloco))
-        out.append('<w:p><w:pPr><w:widowControl w:val="0"/>'
-                   '<w:spacing w:before="0" w:after="0" w:line="240" w:lineRule="auto"/>'
-                   '<w:ind w:left="0" w:firstLine="0"/><w:jc w:val="left"/>%s</w:pPr><w:r>%s%s</w:r></w:p>'
-                   % (rpr, rpr, corpo_))
-    return ''.join(out)
 
 def trecho(nome, funcoes):
     """Rotulo + so as funcoes pedidas de src/<nome>, sem docstring (o arquivo inteiro fica em src/)."""
@@ -617,10 +580,6 @@ while i < len(linhas):
         corpo.append(legenda_tabela(l.strip()))
     elif l.startswith('Trecho de `'):
         corpo.append(rotulo_codigo(l.strip()))
-    elif l.strip() == '@@quebra':
-        corpo.append('<w:p><w:r><w:br w:type="page"/></w:r></w:p>')
-    elif l.strip() == '@@listagem':
-        corpo.append(listagem(LISTAGEM))
     elif l.startswith('@@trecho '):
         _, arquivo, funcoes = l.split()
         corpo.append(trecho(arquivo, funcoes.split(',')))

@@ -26,8 +26,7 @@
 Dialeto lido pelo gerador (o que vem antes do primeiro "## " e ignorado):
   ## titulo com faixa decorativa · ### subtitulo · tabelas | · listas 1. e - · links [rotulo](url)
   em linhas seguidas viram a tabela de links do molde · o marcador "@@notebook" (no comentario la
-  embaixo) e trocado pelo conteudo do notebook executado; o "@@listagem" vira o Apendice A, com a
-  listagem_arquivos.txt inteira e numerada.
+  embaixo) e trocado pelo conteudo do notebook executado.
 -->
 
 ## Apresentação
@@ -61,9 +60,8 @@ estruturas de dados se comportam na prática e confrontam essas medições com a
 | Memória por item | pilha e fila **48 B** · hashtable **237 B** | O(N) nas três; a hashtable paga ≈ 4,9× pelo acesso direto |
 
 As seções seguintes trazem o relatório completo, com a lógica dos programas, o Big O de cada
-algoritmo, os prints do terminal, as tabelas e os gráficos. O **Apêndice A**, no fim do documento,
-reproduz na íntegra o arquivo `listagem_arquivos.txt`, com as linhas numeradas. A versão online e os
-arquivos do projeto estão nos links abaixo.
+algoritmo, os prints do terminal, as tabelas e os gráficos. A versão online e os arquivos do projeto
+estão nos links abaixo.
 
 ## Links do projeto
 
@@ -78,5 +76,3 @@ arquivos do projeto estão nos links abaixo.
 [Códigos-fonte · gerar_listagem.sh, ordenacao.py e estruturas.py](https://github.com/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/tree/main/src)
 
 <!-- @@notebook -->
-
-<!-- @@listagem -->
