@@ -11,6 +11,7 @@
 <br/>
 
 [![Notebook](https://img.shields.io/badge/Notebook-relat%C3%B3rio%20completo%20executado-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](andre_becker_PB_TP1.ipynb)
+[![Relatório](https://img.shields.io/badge/Relat%C3%B3rio-p%C3%A1gina%20online-2DA44E?style=for-the-badge&logo=githubpages&logoColor=white)](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/)
 [![nbviewer](https://img.shields.io/badge/nbviewer-vers%C3%A3o%20renderizada-1E3A8A?style=for-the-badge&logo=jupyter&logoColor=white)](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb)
 [![Listagem](https://img.shields.io/badge/Listagem-17.520%20arquivos-2DA44E?style=for-the-badge&logo=gnubash&logoColor=white)](listagem_arquivos.txt)
 
@@ -70,7 +71,7 @@ flowchart LR
 3. **Programa 2** ([`src/estruturas.py`](src/estruturas.py)): implementa as três estruturas, recupera
    as posições 1, 100, 1.000, 5.000 e a última, e mede tempo e memória (`tracemalloc`) da carga, das
    consultas, da adição e da remoção.
-4. **Relatório:** o notebook ([nbviewer](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb)) explica a lógica, calcula o Big O e compara
+4. **Relatório:** o notebook ([página do relatório](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/) · [nbviewer](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb)) explica a lógica, calcula o Big O e compara
    teoria e prática, com os prints do terminal, as tabelas e os gráficos.
 
 > **Bloco:** Ciência da Computação  
@@ -97,15 +98,15 @@ flowchart LR
 
 | Algoritmo / estrutura | Medida principal (N = 17.520) | Big O | Notebook |
 |---|---|---|:---:|
-| Bubble Sort | 6,84 s | O(N²) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p1res) |
-| Selection Sort | 3,81 s | O(N²), em todos os casos | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p1res) |
-| Insertion Sort | 1,86 s (a listagem tem só 28,3% de inversões) | O(N + I) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p1res) |
-| `list.sort()` (referência) | 1,4 ms | O(N log N) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p1res) |
-| Hashtable: consulta da posição k | 207 a 235 ns, qualquer k | O(1) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p2res) |
-| Fila: consulta da posição k | 191 ns (k = 1) → 210 µs (k = N) | O(k) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p2res) |
-| Pilha: consulta da posição k | 164 ns (k = N) → 199 µs (k = 1) | O(N − k) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p2res) |
-| Adição e remoção (lote de 1.000) | 91 a 120 ns por item na pilha e na fila; 737 a 835 ns na hashtable | O(1) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p2res) |
-| Memória das estruturas | Pilha e fila: 48 B por item; hashtable: 237 B (4,9×) | O(N) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p2res) |
+| Bubble Sort | 6,84 s | O(N²) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p1res) |
+| Selection Sort | 3,81 s | O(N²), em todos os casos | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p1res) |
+| Insertion Sort | 1,86 s (a listagem tem só 28,3% de inversões) | O(N + I) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p1res) |
+| `list.sort()` (referência) | 1,4 ms | O(N log N) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p1res) |
+| Hashtable: consulta da posição k | 207 a 235 ns, qualquer k | O(1) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p2res) |
+| Fila: consulta da posição k | 191 ns (k = 1) → 210 µs (k = N) | O(k) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p2res) |
+| Pilha: consulta da posição k | 164 ns (k = N) → 199 µs (k = 1) | O(N − k) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p2res) |
+| Adição e remoção (lote de 1.000) | 91 a 120 ns por item na pilha e na fila; 737 a 835 ns na hashtable | O(1) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p2res) |
+| Memória das estruturas | Pilha e fila: 48 B por item; hashtable: 237 B (4,9×) | O(N) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p2res) |
 
 > [!TIP]
 > Os tempos do Programa 1 são de 04/11/2026; o Programa 2 foi reexecutado em 10/11/2026 sobre a mesma
@@ -120,7 +121,7 @@ flowchart LR
 </table>
 
 A análise completa, com a derivação do Big O de cada algoritmo e a explicação dos tempos e da memória,
-está no notebook, renderizado no [nbviewer](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb).
+está no notebook, publicado como [página do relatório](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/) (GitHub Pages) e também no [nbviewer](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb).
 
 <p align="right"><a href="#indice">⬆ voltar ao índice</a></p>
 
@@ -160,7 +161,12 @@ Os dois programas gravam `resultados/*.json`. Para refazer as telas e o notebook
 uv run --no-project --with pillow python scripts/capturar_wezterm.py                   # tudo
 uv run --no-project --with pillow python scripts/capturar_wezterm.py --so-estruturas   # só o Programa 2
 uv run --no-project --python 3.12 --with nbformat --with nbclient --with ipykernel --with matplotlib python scripts/gerar_notebook.py
+uv run --no-project --python 3.12 --with nbconvert python scripts/gerar_pagina.py     # docs/index.html (GitHub Pages)
 ```
+
+A página do relatório é o notebook executado, exportado para `docs/index.html` e servido pelo GitHub
+Pages (branch `main`, pasta `/docs`). Ela não depende do nbviewer, cuja cota de acesso à API do GitHub é
+compartilhada por todos os usuários e às vezes se esgota (erro 503).
 
 O documento de entrega (`.docx` e `.pdf`) sai de `scripts/gerar_documento.py` e `scripts/exportar_pdf.ps1`.
 Ele usa o molde institucional, que não é versionado: coloque-o em `docs/molde/` antes de gerar.
@@ -175,14 +181,14 @@ Ele usa o molde institucional, que não é versionado: coloque-o em `docs/molde/
 
 | Critérios da [rubrica](docs/context/rubrica-PB-TP1.md) | Onde está no notebook | Notebook |
 |---|---|:---:|
-| 1 a 3 · print do terminal, comando de listagem e script com redirecionamento | Seção 2, Figuras 1 e 2, [`gerar_listagem.sh`](src/gerar_listagem.sh) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#parte1) |
-| 4 a 7 · leitura do arquivo e os três algoritmos de ordenação | Seção 4, código de `ordenacao.py`, Figura 3 (nano) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p1) |
-| 8, 10, 11 · lógica dos programas e Big O calculado e explicado | Seção 4 (funcionamento, contagem de comparações, resumo teórico) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p1) |
-| 9, 12 · tempos registrados e comparados com a teoria | Seção 5, Tabelas 1 a 4, Gráficos 1 a 3 | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p1res) |
-| 17 a 19, 24 · pilha, fila e hashtable e a lógica do programa | Seção 6, código de `estruturas.py`, Figura 4 (nano) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p2) |
-| 20 a 22 · arquivos nas posições 1, 100, 1.000, 5.000 e última | Seção 7.1, Tabelas 5 a 7 (uma por estrutura) e Figura 6 | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p2res) |
-| 13 a 16, 23 · tempo e memória das tarefas, adição e remoção | Seções 7.2 e 7.3, Tabelas 8 a 11, Gráficos 4 e 5 | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#p2res) |
-| 25 · relatório com tabelas e gráficos | Notebook inteiro e quadro teoria × prática (Seção 8) | [ver](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb#comparativo) |
+| 1 a 3 · print do terminal, comando de listagem e script com redirecionamento | Seção 2, Figuras 1 e 2, [`gerar_listagem.sh`](src/gerar_listagem.sh) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#parte1) |
+| 4 a 7 · leitura do arquivo e os três algoritmos de ordenação | Seção 4, código de `ordenacao.py`, Figura 3 (nano) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p1) |
+| 8, 10, 11 · lógica dos programas e Big O calculado e explicado | Seção 4 (funcionamento, contagem de comparações, resumo teórico) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p1) |
+| 9, 12 · tempos registrados e comparados com a teoria | Seção 5, Tabelas 1 a 4, Gráficos 1 a 3 | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p1res) |
+| 17 a 19, 24 · pilha, fila e hashtable e a lógica do programa | Seção 6, código de `estruturas.py`, Figura 4 (nano) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p2) |
+| 20 a 22 · arquivos nas posições 1, 100, 1.000, 5.000 e última | Seção 7.1, Tabelas 5 a 7 (uma por estrutura) e Figura 6 | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p2res) |
+| 13 a 16, 23 · tempo e memória das tarefas, adição e remoção | Seções 7.2 e 7.3, Tabelas 8 a 11, Gráficos 4 e 5 | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#p2res) |
+| 25 · relatório com tabelas e gráficos | Notebook inteiro e quadro teoria × prática (Seção 8) | [ver](https://andrebecker84.github.io/dr5-pb-tp1-ordenacao-estruturas/#comparativo) |
 
 <p align="right"><a href="#indice">⬆ voltar ao índice</a></p>
 
@@ -206,7 +212,7 @@ Ele usa o molde institucional, que não é versionado: coloque-o em `docs/molde/
 │   ├── telas/                    capturas da janela do WezTerm (Figuras 1 a 7)
 │   └── graficos/                 gráficos do notebook em PNG
 ├── scripts/                      captura das telas, geração do notebook e do documento de entrega
-└── docs/                         enunciado, rubrica e texto do documento de entrega
+└── docs/                         página do relatório (index.html), enunciado, rubrica e texto do PDF
 ```
 
 <a id="estado"></a>

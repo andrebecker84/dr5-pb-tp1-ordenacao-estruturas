@@ -50,12 +50,13 @@ DATA_ISO = '%s-%s-%sT00:00:00' % (_ano, _mes, _dia)
 # Texto do documento: docs/RELATORIO_TP1.md, sem os comentarios HTML.
 def carregar_conteudo():
     texto = io.open(os.path.join(RAIZ, 'docs', 'RELATORIO_TP1.md'), encoding='utf-8').read()
-    texto = re.sub(r'<!--.*?-->', '', texto, flags=re.S)
-    if '@@notebook' in texto:
+    # O marcador fica num comentario HTML para nao aparecer no GitHub; troca-se antes de remover
+    # os comentarios.
+    if '<!-- @@notebook -->' in texto:
         sys.path.insert(0, os.path.join(RAIZ, 'scripts'))
         from relatorio_notebook import converter
-        texto = texto.replace('@@notebook', converter())
-    return texto
+        texto = texto.replace('<!-- @@notebook -->', converter())
+    return re.sub(r'<!--.*?-->', '', texto, flags=re.S)
 
 
 def trecho_funcoes(nome, funcoes):
@@ -166,6 +167,10 @@ def tabela_links(urls):
         tr = re.sub(r'(<w:t(?:\s[^>]*)?>)[^<]*(</w:t>)',
                     lambda mm: mm.group(1) + esc(rotulo) + mm.group(2), tr)
         tr = re.sub(r'<w:hyperlink r:id="rId\d+"', '<w:hyperlink r:id="%s"' % rid, tr)
+        if k < len(urls) - 1:
+            # "manter com o proximo" em todas as linhas menos a ultima: a lista de links nao se parte
+            # entre duas paginas.
+            tr = re.sub(r'<w:pPr>(?!<w:keepNext/>)', '<w:pPr><w:keepNext/>', tr)
         corpo_linhas.append(_unico(tr, 1920000000, 251900000, '6B20'))
     return cabeca + ''.join(corpo_linhas) + '</w:tbl>'
 

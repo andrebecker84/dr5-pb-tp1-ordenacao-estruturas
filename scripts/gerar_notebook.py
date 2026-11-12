@@ -127,7 +127,9 @@ def leitura(t, titulo='Leitura'):
 def py(t):
     """Celulas que so montam figuras, tabelas e graficos ficam com o codigo recolhido (a saida aparece)."""
     c = nbformat.v4.new_code_cell(t.strip('\n'))
-    if t.lstrip().startswith('figura(') or 'plt.' in t or "est = E['estruturas']" in t or 'ops = {' in t:
+    so_apresentacao = (t.lstrip().startswith(('figura(', 'codigo(')) or 'plt.' in t or 'from apoio_notebook' in t
+                       or "est = E['estruturas']" in t or 'ops = {' in t or 'ordenacao.ler_listagem' in t)
+    if so_apresentacao:
         c.metadata['jupyter'] = {'source_hidden': True}
         c.metadata['tags'] = ['hide-input']
     celulas.append(c)
