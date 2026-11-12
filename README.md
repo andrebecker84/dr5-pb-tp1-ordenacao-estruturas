@@ -211,8 +211,9 @@ Ele usa o molde institucional, que não é versionado: coloque-o em `docs/molde/
 
 <a id="estado"></a>
 
-**Estado:** entregue. Relatório de entrega em PDF (`andre_becker_PB_TP1.pdf`) com a capa institucional,
-uma introdução e os links deste repositório.
+**Estado:** entregue. O PDF de entrega (`andre_becker_PB_TP1.pdf`) traz a capa institucional, a
+apresentação, os links deste repositório e o relatório completo do notebook (telas, tabelas, gráficos,
+trechos de código e referências), convertido por `scripts/relatorio_notebook.py`.
 
 <p align="right"><a href="#indice">⬆ voltar ao índice</a></p>
 

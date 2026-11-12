@@ -5,8 +5,9 @@
 
 Adaptado do gerador do DR1-TP1: reaproveita do molde (docs/molde/andre_becker_DR3_TP1.docx) a capa,
 os estilos, o tema, o cabecalho, os rodapes, a faixa decorativa dos titulos e a tabela de links. O
-texto vem de docs/RELATORIO_TP1.md e e de proposito curto: apresentacao, links do repositorio e
-referencias. O relatorio completo e o notebook andre_becker_PB_TP1.ipynb, publicado no repositorio.
+texto vem de docs/RELATORIO_TP1.md (apresentacao e links) e, no lugar da linha "@@notebook", do
+proprio notebook executado, convertido por scripts/relatorio_notebook.py: o PDF traz o mesmo conteudo
+do nbviewer, com as telas do terminal, as tabelas, os graficos, os trechos de codigo e as referencias.
 
 O molde nao e versionado (.gitignore): e a entrega de outra disciplina e traz a identidade visual
 do Infnet. Para gerar o documento, coloque-o em docs/molde/ ou passe o caminho como argumento.
@@ -14,6 +15,8 @@ do Infnet. Para gerar o documento, coloque-o em docs/molde/ ou passe o caminho c
 Convencoes do markdown:
   ##              titulo de secao, com faixa decorativa
   [rotulo](url)   linhas seguidas de links viram a tabela de links do molde
+  @@imagem c | l  imagem do projeto (caminho c) com a legenda l
+  Tabela N. ...   legenda da tabela logo acima
   paragrafos      corpo; na secao Referencias, sem recuo (ABNT)
 """
 import glob, io, os, re, shutil, struct, sys, tempfile, zipfile
@@ -47,7 +50,12 @@ DATA_ISO = '%s-%s-%sT00:00:00' % (_ano, _mes, _dia)
 # Texto do documento: docs/RELATORIO_TP1.md, sem os comentarios HTML.
 def carregar_conteudo():
     texto = io.open(os.path.join(RAIZ, 'docs', 'RELATORIO_TP1.md'), encoding='utf-8').read()
-    return re.sub(r'<!--.*?-->', '', texto, flags=re.S)
+    texto = re.sub(r'<!--.*?-->', '', texto, flags=re.S)
+    if '@@notebook' in texto:
+        sys.path.insert(0, os.path.join(RAIZ, 'scripts'))
+        from relatorio_notebook import converter
+        texto = texto.replace('@@notebook', converter())
+    return texto
 
 
 def trecho_funcoes(nome, funcoes):
@@ -335,8 +343,10 @@ def tabela(linhas_md):
     n = len(cab)
     # Largura de cada coluna proporcional ao texto mais longo dela (entre 6 e 45 caracteres), para
     # uma coluna curta como "Ex." nao ocupar o mesmo espaco que uma descricao.
-    texto = lambda c: re.sub(r'[*`]', '', c)
-    peso = [min(45, max(6, max(len(texto(l[k])) for l in [cab] + corpo_tab if k < len(l))))
+    texto = lambda c: re.sub('[*`​]', '', c)
+    # Piso: a palavra mais longa do cabecalho cabe inteira (sem isto "Estrutura" quebrava em tres).
+    piso = [max(6, max(len(w) for w in texto(c).split() or ['']) + 7) for c in cab]
+    peso = [min(45, max(piso[k], max(len(texto(l[k])) for l in [cab] + corpo_tab if k < len(l))))
             for k in range(n)]
     larg = [LARG * p // sum(peso) for p in peso]
     larg[-1] = LARG - sum(larg[:-1])
@@ -354,8 +364,10 @@ def tabela(linhas_md):
         return '<w:tr>%s%s</w:tr>' % (
             '<w:trPr><w:tblHeader/></w:trPr>' if is_cab else '', tcs)
 
+    # Layout fixo: as colunas respeitam as larguras calculadas e o texto quebra dentro delas, em vez
+    # de a tabela crescer alem da margem.
     return ('<w:tbl><w:tblPr><w:tblStyle w:val="Tabelacomgrade"/>'
-            '<w:tblW w:w="%d" w:type="dxa"/><w:tblBorders>'
+            '<w:tblW w:w="%d" w:type="dxa"/><w:tblLayout w:type="fixed"/><w:tblBorders>'
             '<w:top w:val="single" w:sz="4" w:color="BFBFBF"/>'
             '<w:left w:val="single" w:sz="4" w:color="BFBFBF"/>'
             '<w:bottom w:val="single" w:sz="4" w:color="BFBFBF"/>'
@@ -365,7 +377,9 @@ def tabela(linhas_md):
             '</w:tblBorders></w:tblPr><w:tblGrid>%s</w:tblGrid>%s</w:tbl>'
             '<w:p><w:pPr><w:spacing w:after="0"/></w:pPr></w:p>'
             % (LARG, ''.join('<w:gridCol w:w="%d"/>' % x for x in larg),
-               linha(cab, True) + ''.join(linha(c, False) for c in corpo_tab)))
+               # codigo dentro de tabela um ponto menor que o texto: caminhos longos quebram menos
+               (linha(cab, True) + ''.join(linha(c, False) for c in corpo_tab))
+               .replace('<w:sz w:val="19"/><w:szCs w:val="19"/>', '<w:sz w:val="17"/><w:szCs w:val="17"/>')))
 
 # --- hyperlinks externos: cada URL vira um Relationship novo no pacote ---
 links = []
@@ -430,6 +444,59 @@ def figura(numero, texto_legenda):
         '<w:r><w:br/></w:r>%s</w:p>'
         % (cx, cy, ident, numero, ident, nome, rid, cx, cy, runs(texto_legenda, RPR_LEGENDA)))
 
+def imagem(caminho, texto_legenda):
+    """Imagem do projeto + legenda num unico paragrafo (mesma tecnica de figura())."""
+    origem = os.path.join(RAIZ, caminho.replace('/', os.sep))
+    dim = png_dim(origem) if os.path.exists(origem) else None
+    if not dim:
+        return caixa_figura() + legenda(texto_legenda)
+    larg_px, alt_px = dim
+    # Telas do terminal em 88% da largura util; graficos um pouco menores. Imagem muito alta
+    # (nano em tela cheia) e limitada a ~60% da altura util, para caber com a legenda.
+    frac = 0.80 if 'graficos' in caminho else 0.88
+    cx = int(LARG * frac) * 635
+    cy = int(round(cx * float(alt_px) / larg_px))
+    max_cy = int(7.4 * 914400)
+    if cy > max_cy:
+        cx, cy = int(cx * max_cy / cy), max_cy
+    _prox[0] += 1
+    rid = 'rId%d' % _prox[0]
+    nome = 'imagem%02d.png' % (len(imagens) + 1)
+    imagens.append((rid, nome, origem))
+    ident = 4000 + len(imagens)
+    return (
+        '<w:p><w:pPr><w:keepLines/><w:jc w:val="center"/>'
+        '<w:spacing w:before="200" w:after="200" w:line="240" w:lineRule="auto"/>'
+        '<w:ind w:firstLine="0"/></w:pPr><w:r><w:drawing>'
+        '<wp:inline distT="0" distB="0" distL="0" distR="0">'
+        '<wp:extent cx="%d" cy="%d"/><wp:effectExtent l="0" t="0" r="0" b="0"/>'
+        '<wp:docPr id="%d" name="Imagem %d"/><wp:cNvGraphicFramePr>'
+        '<a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"'
+        ' noChangeAspect="1"/></wp:cNvGraphicFramePr>'
+        '<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">'
+        '<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">'
+        '<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">'
+        '<pic:nvPicPr><pic:cNvPr id="%d" name="%s"/><pic:cNvPicPr/></pic:nvPicPr>'
+        '<pic:blipFill><a:blip r:embed="%s"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill>'
+        '<pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="%d" cy="%d"/></a:xfrm>'
+        '<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr>'
+        '</pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>'
+        '<w:r><w:br/></w:r>%s</w:p>'
+        % (cx, cy, ident, ident, ident, nome, rid, cx, cy, runs(texto_legenda, RPR_LEGENDA)))
+
+def rotulo_codigo(texto):
+    """'Trecho de `src/x.py` (linhas a-b)': rotulo pequeno, colado ao bloco de codigo."""
+    return '<w:p><w:pPr><w:keepNext/>%s</w:pPr>%s</w:p>' % (
+        '<w:spacing w:before="160" w:after="40" w:line="240" w:lineRule="auto"/>'
+        '<w:ind w:left="113" w:firstLine="0"/>',
+        runs(texto, TEMA + '<w:color w:val="404040"/><w:sz w:val="18"/><w:szCs w:val="18"/>'))
+
+def legenda_tabela(texto):
+    return '<w:p><w:pPr>%s</w:pPr>%s</w:p>' % (
+        '<w:spacing w:before="40" w:after="200" w:line="240" w:lineRule="auto"/>'
+        '<w:ind w:left="113" w:firstLine="0"/><w:jc w:val="left"/>',
+        runs(texto, RPR_LEGENDA))
+
 def link_simples(url):
     """Reserva: link como paragrafo, se o molde nao trouxer a tabela."""
     _prox[0] += 1
@@ -452,7 +519,7 @@ corpo, buf_tab, buf_url = [], [], []
 secao = ''
 
 # Linha que comeca outro bloco (titulo, item, tabela, codigo, figura...) e nao continua o paragrafo.
-INICIO_DE_BLOCO = r'^(#{2,3} |[-*] |\d+\. |\||```|> |https?://|Figura \d+\.|@@|---$)'
+INICIO_DE_BLOCO = r'^(#{2,3} |[-*] |\d+\. |\||```|> |https?://|Figura \d+\.|Tabela \d+\.|Trecho de |@@|---$)'
 
 def juntar_continuacao(i, primeira):
     """Junta as linhas seguintes que continuam o mesmo paragrafo. Devolve (texto, ultimo indice lido)."""
@@ -496,9 +563,19 @@ while i < len(linhas):
         buf = []; i += 1
         while i < len(linhas) and not linhas[i].startswith('```'):
             buf.append(linhas[i]); i += 1
-        corpo.append(codigo(buf)); i += 1; continue
+        corpo.append(codigo(buf, tam=15, recuo=113))
+        corpo.append('<w:p><w:pPr><w:spacing w:before="0" w:after="60" w:line="240" w:lineRule="auto"/>'
+                     '<w:rPr><w:sz w:val="8"/></w:rPr></w:pPr></w:p>')      # respiro depois do codigo
+        i += 1; continue
 
-    if l.startswith('@@trecho '):
+    if l.startswith('@@imagem '):
+        caminho, leg = [x.strip() for x in l[len('@@imagem '):].split('|', 1)]
+        corpo.append(imagem(caminho, leg))
+    elif re.match(r'^Tabela \d+\.', l.strip()):
+        corpo.append(legenda_tabela(l.strip()))
+    elif l.startswith('Trecho de `'):
+        corpo.append(rotulo_codigo(l.strip()))
+    elif l.startswith('@@trecho '):
         _, arquivo, funcoes = l.split()
         corpo.append(trecho(arquivo, funcoes.split(',')))
     elif l.strip().startswith('@@video'):

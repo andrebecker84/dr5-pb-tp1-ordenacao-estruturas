@@ -10,8 +10,8 @@
 
 <!--
 Fonte do documento de entrega (scripts/gerar_documento.py monta o .docx sobre o molde institucional e
-scripts/exportar_pdf.ps1 exporta o PDF). O documento e de proposito curto: apresenta o trabalho e aponta
-para o repositorio, onde estao o notebook com o relatorio completo, os fontes e a listagem.
+scripts/exportar_pdf.ps1 exporta o PDF). A apresentacao e os links ficam aqui; a linha @@notebook e
+substituida pelo conteudo do notebook executado (scripts/relatorio_notebook.py), referencias incluidas.
 -->
 
 ## Apresentação
@@ -31,27 +31,18 @@ O segundo armazena a listagem em uma Hashtable, uma Pilha e uma Fila, recupera o
 A consulta por posição custa O(1) na hashtable, O(k) na fila e O(N − k) na pilha; adicionar e remover
 custa O(1) nas três. Em troca do acesso direto, a hashtable usa cerca de 5 vezes mais memória por item.
 
-O relatório completo, com a lógica dos programas, o Big O de cada algoritmo, os prints do terminal, as
-tabelas e os gráficos, está no notebook do repositório.
+As seções a seguir reproduzem o relatório completo do notebook, com a lógica dos programas, o Big O de
+cada algoritmo, os prints do terminal, as tabelas e os gráficos. A versão interativa está no nbviewer e
+os fontes, a listagem e os resultados estão no repositório (links abaixo).
 
 ## Links do projeto
 
 [Repositório no GitHub · andrebecker84/dr5-pb-tp1-ordenacao-estruturas](https://github.com/andrebecker84/dr5-pb-tp1-ordenacao-estruturas)
 
-[Relatório completo · notebook andre_becker_PB_TP1.ipynb (nbviewer)](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb)
+[Notebook interativo no nbviewer · andre_becker_PB_TP1.ipynb](https://nbviewer.org/github/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/andre_becker_PB_TP1.ipynb)
 
 [Listagem gerada no Linux · listagem_arquivos.txt (17.520 linhas)](https://github.com/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/blob/main/listagem_arquivos.txt)
 
 [Códigos-fonte · gerar_listagem.sh, ordenacao.py e estruturas.py](https://github.com/andrebecker84/dr5-pb-tp1-ordenacao-estruturas/tree/main/src)
 
-## Referências
-
-CORMEN, T. H.; LEISERSON, C. E.; RIVEST, R. L.; STEIN, C. **Algoritmos: teoria e prática**. Tradução da 3. ed. americana. Rio de Janeiro: Elsevier, 2012.
-
-GOODRICH, M. T.; TAMASSIA, R.; GOLDWASSER, M. H. **Data structures and algorithms in Python**. Hoboken: Wiley, 2013.
-
-KNUTH, D. E. **The art of computer programming**: volume 3: sorting and searching. 2. ed. Reading: Addison-Wesley, 1998.
-
-SEDGEWICK, R.; WAYNE, K. **Algorithms**. 4. ed. Upper Saddle River: Addison-Wesley, 2011.
-
-SHOTTS, W. **The Linux command line**: a complete introduction. 2. ed. San Francisco: No Starch Press, 2019.
+@@notebook
